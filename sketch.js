@@ -35,20 +35,19 @@ function setup() {
 	starBody = Bodies.circle(650 , 30 , 5 , {restitution:0.5, isStatic:true});
 	World.add(world, starBody);
 	
-	Engine.run(engine);
 
 	
 	
-	
 
-	
-drawSprites()
+
 }
 
 
 function draw() {
   background(bgImg);
-
+  
+  Engine.update(engine);
+ellipse(starBody.position.x,starBody.position.y,5)
   drawSprites();
 
 }
@@ -56,11 +55,14 @@ function draw() {
 function keyPressed() {
 	//write code here
 
- starBody={
-	 
-	isStatic:false
+	console.log("high")
+	if (keyCode === 32){
 
- }
+		Matter.Body.setStatic(starBody,false)
+
+	}
+
+ 
 
 }
 
